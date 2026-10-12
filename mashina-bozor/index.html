@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AVTO BOZOR PRO - Mashinalar Olib Sotish Portali</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="brand-logo" id="btnLogo">
+                <div class="logo-icon-box">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.5 2.8C2.1 10.9 2 11.2 2 11.6V16c0 .6.4 1 1 1h2"/>
+                        <circle cx="7" cy="17" r="2"/>
+                        <path d="M9 17h6"/>
+                        <circle cx="17" cy="17" r="2"/>
+                    </svg>
+                </div>
+                <div class="brand-text">
+                    <h1>AVTO BOZOR PRO</h1>
+                    <span>O'zbekiston Avtomobil Portali</span>
+                </div>
+            </div>
+
+            <!-- Global Search -->
+            <div class="nav-search-bar">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"/>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                </svg>
+                <input type="text" id="navSearchInput" placeholder="Marka, model yoki parametr bo'yicha qidiring (masalan: Malibu, BYD)...">
+            </div>
+
+            <!-- Nav Actions -->
+            <div class="nav-actions">
+                <div class="currency-badge" title="Joriy valyuta kursi">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <line x1="12" y1="1" x2="12" y2="23"/>
+                        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                    </svg>
+                    <span>1$ ≈ 12,800 UZS</span>
+                </div>
+
+                <!-- Loan Calc Modal Trigger -->
+                <button class="nav-btn-icon" id="btnOpenLoanCalc" title="Avtokredit kalkulyatori">
+                    <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="4" y="2" width="16" height="20" rx="2"/>
+                        <line x1="8" y1="6" x2="16" y2="6"/>
+                        <line x1="16" y1="14" x2="16" y2="18"/>
+                        <path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 10h.01"/><path d="M12 14h.01"/><path d="M8 14h.01"/><path d="M12 18h.01"/><path d="M8 18h.01"/>
+                    </svg>
+                </button>
+
+                <!-- Compare Trigger -->
+                <button class="nav-btn-icon" id="btnOpenCompare" title="Solishtirish">
+                    <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M16 3h5v5"/><path d="M4 20L21 3"/><path d="M21 16v5h-5"/><path d="M15 15l6 6"/><path d="M4 4l5 5"/>
+                    </svg>
+                    <span class="nav-badge-count" id="compareBadgeCount" style="display: none;">0</span>
+                </button>
+
+                <!-- Favorites Trigger -->
+                <button class="nav-btn-icon" id="btnOpenFavorites" title="Sevimlilar">
+                    <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                    </svg>
+                    <span class="nav-badge-count" id="favoritesBadgeCount" style="display: none;">0</span>
+                </button>
+
+                <!-- Post Ad Button -->
+                <button class="btn-post-ad" id="btnOpenPostAd">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <circle cx="12" cy="12" r="10"/>
+                        <line x1="12" y1="8" x2="12" y2="16"/>
+                        <line x1="8" y1="12" x2="16" y2="12"/>
+                    </svg>
+                    <span>Mashina sotish</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ================= HERO SHOWCASE ================= -->
+    <section class="hero-section">
+        <div class="hero-card">
+            <div class="hero-content">
+                <div class="hero-text-wrap">
+                    <div class="hero-tag">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                        </svg>
+                        O'zbekistondagi #1 Ishonchli Avtomobil Bozori
+                    </div>
+                    <h2 class="hero-title">Orzuingizdagi mashinani <span>toping yoki soting</span></h2>
+                    <p class="hero-desc">Chevrolet, BYD, Kia, Hyundai va premium toifadagi xorijiy modellarning eng so'nggi takliflari. Rasmiy dilerlar va bevosita egalaridan tekshirilgan e'lonlar.</p>
+                </div>
+
+                <div class="hero-stats">
+                    <div class="hero-stat-box">
+                        <div class="stat-num" id="statTotalCars">9</div>
+                        <div class="stat-label">Mavjud Mashina</div>
+                    </div>
+                    <div class="hero-stat-box">
+                        <div class="stat-num">$28,000</div>
+                        <div class="stat-label">O'rtacha Narx</div>
+                    </div>
+                    <div class="hero-stat-box">
+                        <div class="stat-num">100%</div>
+                        <div class="stat-label">Tasdiqlangan E'lonlar</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Filter Bar -->
+            <div class="quick-search-box">
+                <div class="quick-field">
+                    <label>Marka</label>
+                    <select id="quickBrandSelect">
+                        <option value="all">Barcha markalar</option>
+                        <option value="Chevrolet">Chevrolet</option>
+                        <option value="BYD">BYD</option>
+                        <option value="Kia">Kia</option>
+                        <option value="Hyundai">Hyundai</option>
+                        <option value="BMW">BMW</option>
+                        <option value="Li Auto">Li Auto</option>
+                    </select>
+                </div>
+                <div class="quick-field">
+                    <label>Maksimal narx ($)</label>
+                    <select id="quickPriceSelect">
+                        <option value="all">Ixtiyoriy narx</option>
+                        <option value="15000">$15,000 gacha</option>
+                        <option value="25000">$25,000 gacha</option>
+                        <option value="35000">$35,000 gacha</option>
+                        <option value="50000">$50,000 gacha</option>
+                    </select>
+                </div>
+                <div class="quick-field">
+                    <label>Kuzov turi</label>
+                    <select id="quickBodySelect">
+                        <option value="all">Barcha kuzovlar</option>
+                        <option value="Sedan">Sedan</option>
+                        <option value="Krossover / SUV">Krossover / SUV</option>
+                    </select>
+                </div>
+                <div class="quick-field">
+                    <label>Yoqilg'i</label>
+                    <select id="quickFuelSelect">
+                        <option value="all">Barcha yoqilg'ilar</option>
+                        <option value="Benzin">Benzin</option>
+                        <option value="Elektr">Elektr</option>
+                        <option value="Gibrid (EREV)">Gibrid</option>
+                        <option value="Benzin / Gaz (Metan)">Gaz (Metan)</option>
+                    </select>
+                </div>
+                <button class="btn-quick-submit" id="btnQuickSearch">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <circle cx="11" cy="11" r="8"/>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                    </svg>
+                    Topish
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= MAIN SECTION ================= -->
+    <main class="main-wrapper">
+        
+        <!-- SIDEBAR FILTERS -->
+        <aside class="filter-sidebar">
+            <div class="filter-header">
+                <h2>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/>
+                    </svg>
+                    Filtrlar
+                </h2>
+                <button class="btn-reset-filters" id="btnResetFilters">Tozalash</button>
+            </div>
+
+            <!-- Marka Filter -->
+            <div class="filter-group">
+                <div class="filter-label">Avtomobil markasi</div>
+                <div class="filter-pills" id="brandPillsContainer">
+                    <!-- Populated dynamically via JS -->
+                </div>
+            </div>
+
+            <!-- Narx oralig'i -->
+            <div class="filter-group">
+                <div class="filter-label">
+                    <span>Narxi ($ USD)</span>
+                    <span id="priceDisplayRange" style="color: var(--primary);">$0 - $60,000</span>
+                </div>
+                <div class="range-inputs">
+                    <input type="number" id="filterPriceMin" placeholder="Dan" min="0" step="500">
+                    <span>—</span>
+                    <input type="number" id="filterPriceMax" placeholder="Gacha" max="150000" step="500">
+                </div>
+            </div>
+
+            <!-- Yil oralig'i -->
+            <div class="filter-group">
+                <div class="filter-label">Ishlab chiqarilgan yili</div>
+                <div class="range-inputs">
+                    <input type="number" id="filterYearMin" placeholder="2015" min="2000" max="2026">
+                    <span>—</span>
+                    <input type="number" id="filterYearMax" placeholder="2024" min="2000" max="2026">
+                </div>
+            </div>
+
+            <!-- Yoqilg'i turi -->
+            <div class="filter-group">
+                <div class="filter-label">Yoqilg'i turi</div>
+                <select class="filter-select" id="filterFuel">
+                    <option value="all">Barchasi</option>
+                    <option value="Benzin">Benzin</option>
+                    <option value="Elektr">Elektr (EV)</option>
+                    <option value="Gibrid (EREV)">Gibrid</option>
+                    <option value="Benzin / Gaz (Metan)">Gaz / Metan</option>
+                </select>
+            </div>
+
+            <!-- Uzatmalar qutisi -->
+            <div class="filter-group">
+                <div class="filter-label">Uzatma qutisi</div>
+                <select class="filter-select" id="filterTransmission">
+                    <option value="all">Barchasi</option>
+                    <option value="Avtomat">Avtomat</option>
+                    <option value="Mexanika">Mexanika</option>
+                </select>
+            </div>
+
+            <!-- Shahar / Viloyat -->
+            <div class="filter-group">
+                <div class="filter-label">Shahar / Viloyat</div>
+                <select class="filter-select" id="filterCity">
+                    <option value="all">Barcha viloyatlar</option>
+                    <option value="Toshkent">Toshkent shahri</option>
+                    <option value="Samarqand">Samarqand</option>
+                    <option value="Farg'ona">Farg'ona</option>
+                    <option value="Namangan">Namangan</option>
+                    <option value="Buxoro">Buxoro</option>
+                    <option value="Andijon">Andijon</option>
+                </select>
+            </div>
+
+            <!-- Qo'shimcha xususiyatlar -->
+            <div class="filter-group">
+                <label class="checkbox-item">
+                    <input type="checkbox" id="filterCleanPaintOnly">
+                    <span>Faqat kraskasi toza mashinalar</span>
+                </label>
+                <label class="checkbox-item">
+                    <input type="checkbox" id="filterFeaturedOnly">
+                    <span>Faqat TOP e'lonlar</span>
+                </label>
+            </div>
+        </aside>
+
+        <!-- LISTINGS CONTAINER -->
+        <section class="listings-container">
+
+            <!-- Category Tabs -->
+            <div class="category-tabs">
+                <button class="category-tab active" data-tab="all">
+                    <span>Barcha mashinalar</span>
+                </button>
+                <button class="category-tab" data-tab="ev">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    <span>Elektromobillar & Gibrid</span>
+                </button>
+                <button class="category-tab" data-tab="featured">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <span>TOP E'lonlar</span>
+                </button>
+                <button class="category-tab" data-tab="favorites">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                    <span>Sevimlilar</span>
+                </button>
+                <button class="category-tab" data-tab="my-ads">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="7" r="4"/><path d="M5.5 21a8.38 8.38 0 0 1 13 0"/></svg>
+                    <span>Mening e'lonlarim</span>
+                </button>
+            </div>
+
+            <!-- Topbar Controls -->
+            <div class="listings-topbar">
+                <div class="results-count">
+                    Topildi: <strong id="resultsCount">0 ta</strong> avtomobil
+                </div>
+
+                <div class="listings-controls">
+                    <div class="sort-wrap">
+                        <label for="sortSelector">Saralash:</label>
+                        <select id="sortSelector" class="sort-select">
+                            <option value="featured">Tavsiya etilgan</option>
+                            <option value="price-asc">Narx: Arzondan qimmatga</option>
+                            <option value="price-desc">Narx: Qimmatdan arzonga</option>
+                            <option value="year-desc">Yili: Yangiroq</option>
+                            <option value="mileage-asc">Probeg: Kamroq</option>
+                        </select>
+                    </div>
+
+                    <div class="view-mode-toggle">
+                        <button class="view-btn active" id="btnViewGrid" title="Katakcha ko'rinishi">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="3" width="7" height="7"/>
+                                <rect x="14" y="3" width="7" height="7"/>
+                                <rect x="14" y="14" width="7" height="7"/>
+                                <rect x="3" y="14" width="7" height="7"/>
+                            </svg>
+                        </button>
+                        <button class="view-btn" id="btnViewList" title="Ro'yxat ko'rinishi">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="8" y1="6" x2="21" y2="6"/>
+                                <line x1="8" y1="12" x2="21" y2="12"/>
+                                <line x1="8" y1="18" x2="21" y2="18"/>
+                                <line x1="3" y1="6" x2="3.01" y2="6"/>
+                                <line x1="3" y1="12" x2="3.01" y2="12"/>
+                                <line x1="3" y1="18" x2="3.01" y2="18"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MASHINALAR RO'YXATI GRID -->
+            <div class="cars-grid" id="carsGrid">
+                <!-- Javascript orqali to'ldiriladi -->
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- ================= MODAL: MASHINA BATAFSIL KO'RISH ================= -->
+    <div class="modal-overlay" id="carDetailModal">
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <div class="modal-title">
+                    <span id="detailCarTitle">Chevrolet Malibu 2 Premier</span>
+                </div>
+                <button class="btn-close-modal" id="btnCloseDetailModal">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Rasm Galereyasi -->
+                <div class="detail-gallery">
+                    <img id="detailMainImg" src="" alt="Mashina rasmi">
+                    <div class="gallery-thumbs" id="detailGalleryThumbs"></div>
+                </div>
+
+                <!-- Asosiy narx va shahar -->
+                <div class="detail-main-info">
+                    <div>
+                        <div class="card-city" id="detailLocation" style="font-size: 14px; margin-bottom: 6px;"></div>
+                        <h3 id="detailSubTitle" style="font-size: 16px; color: var(--text-muted);"></h3>
+                    </div>
+                    <div class="detail-price-box">
+                        <div class="detail-price-usd" id="detailPriceUSD">$0</div>
+                        <div class="detail-price-uzs" id="detailPriceUZS">0 UZS</div>
+                    </div>
+                </div>
+
+                <!-- Texnik ko'rsatkichlar -->
+                <h4 style="margin-bottom: 12px; font-size: 16px; color: #fff;">Texnik xususiyatlar</h4>
+                <div class="specs-table" id="detailSpecsGrid"></div>
+
+                <!-- Qulayliklar va opsiyalar -->
+                <h4 style="margin-bottom: 12px; font-size: 16px; color: #fff;">Qulayliklar va jihozlar</h4>
+                <div class="features-tags" id="detailFeaturesList"></div>
+
+                <!-- Tavsif -->
+                <h4 style="margin-bottom: 12px; font-size: 16px; color: #fff;">Sotuvchi izohi</h4>
+                <p id="detailDescription" style="color: var(--text-muted); font-size: 14px; line-height: 1.6; margin-bottom: 24px; background: var(--bg-surface-elevated); padding: 14px; border-radius: var(--radius-md);"></p>
+
+                <!-- Sotuvchi ma'lumoti -->
+                <div class="seller-box">
+                    <div class="seller-profile">
+                        <div class="seller-avatar" id="detailSellerAvatar">S</div>
+                        <div class="seller-info">
+                            <h4 id="detailSellerName">Sardor Rahimov</h4>
+                            <span id="detailSellerType">Egasi</span>
+                        </div>
+                    </div>
+                    <div class="seller-actions">
+                        <button class="btn-phone-reveal" id="btnRevealPhone">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            <span id="detailPhoneText">Raqamni ko'rish</span>
+                        </button>
+                        <a href="#" target="_blank" class="btn-telegram" id="detailTelegramLink">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 0 0-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.37.74-.56 2.92-1.27 4.86-2.11 5.83-2.52 2.77-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .37z"/></svg>
+                            Telegram
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Savdolashish (Narx taklif qilish) -->
+                <div class="offer-box">
+                    <h4>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                        Sotuvchiga o'z narxingizni taklif qiling (Savdolashish)
+                    </h4>
+                    <p style="font-size: 13px; color: var(--text-dim);">Taklifingizni kiriting, biz sotuvchiga darhol xabar shakllantiramiz.</p>
+                    <form class="offer-form" id="offerForm">
+                        <input type="number" id="offerAmountInput" placeholder="Taklif qiladigan narxingiz ($)" required>
+                        <button type="submit">Taklif yuborish</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= MODAL: MASHINA SOTISH (E'LON BERISH) ================= -->
+    <div class="modal-overlay" id="postAdModal">
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <div class="modal-title">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+                    Yangi e'lon berish (Mashina sotish)
+                </div>
+                <button class="btn-close-modal" id="btnClosePostAdModal">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="newCarForm" class="form-grid">
+                    <div class="form-group">
+                        <label>Markasi *</label>
+                        <input type="text" id="newCarBrand" placeholder="Masalan: Chevrolet, BYD, Kia" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Modeli *</label>
+                        <input type="text" id="newCarModel" placeholder="Masalan: Malibu 2, Song Plus" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Ishlab chiqarilgan yili *</label>
+                        <input type="number" id="newCarYear" min="1990" max="2026" value="2023" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Narxi ($ USD) *</label>
+                        <input type="number" id="newCarPrice" placeholder="Masalan: 18500" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Bosib o'tgan masofasi (km) *</label>
+                        <input type="number" id="newCarMileage" placeholder="Masalan: 25000" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Yoqilg'i turi *</label>
+                        <select id="newCarFuel" required>
+                            <option value="Benzin">Benzin</option>
+                            <option value="Elektr">Elektr (EV)</option>
+                            <option value="Gibrid (EREV)">Gibrid</option>
+                            <option value="Benzin / Gaz (Metan)">Benzin / Gaz (Metan)</option>
+                            <option value="Dizel">Dizel</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Uzatma qutisi *</label>
+                        <select id="newCarTransmission" required>
+                            <option value="Avtomat">Avtomat</option>
+                            <option value="Mexanika">Mexanika</option>
+                            <option value="Variator">Variator</option>
+                            <option value="Robot">Robot</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Kuzov turi *</label>
+                        <select id="newCarBody" required>
+                            <option value="Sedan">Sedan</option>
+                            <option value="Krossover / SUV">Krossover / SUV</option>
+                            <option value="Xetchbek">Xetchbek</option>
+                            <option value="Pikap">Pikap</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Dvigatel hajmi / quvvati</label>
+                        <input type="text" id="newCarEngine" placeholder="Masalan: 1.5 Turbo (170 o.k.)">
+                    </div>
+                    <div class="form-group">
+                        <label>Rangi</label>
+                        <input type="text" id="newCarColor" placeholder="Masalan: Oq (White)">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Kraska holati *</label>
+                        <select id="newCarPaint">
+                            <option value="Toza (Kraska yo'q)">Toza (Kraska yo'q)</option>
+                            <option value="Petno bor">Petno bor</option>
+                            <option value="Kraska qilingan joylari bor">Kraska qilingan joylari bor</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Shahar / Viloyat *</label>
+                        <select id="newCarCity" required>
+                            <option value="Toshkent">Toshkent</option>
+                            <option value="Samarqand">Samarqand</option>
+                            <option value="Farg'ona">Farg'ona</option>
+                            <option value="Namangan">Namangan</option>
+                            <option value="Andijon">Andijon</option>
+                            <option value="Buxoro">Buxoro</option>
+                            <option value="Xorazm">Xorazm</option>
+                            <option value="Qashqadaryo">Qashqadaryo</option>
+                        </select>
+                    </div>
+
+                    <!-- Rasm tanlash -->
+                    <div class="form-group form-group-full">
+                        <label>Mashina fotosurati * (Fayl tanlang yoki namuna fotosuratlardan birini tanlang)</label>
+                        <div class="image-upload-zone" id="dropZoneUpload">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="color: var(--primary); margin-bottom: 8px;">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                                <circle cx="8.5" cy="8.5" r="1.5"/>
+                                <polyline points="21 15 16 10 5 21"/>
+                            </svg>
+                            <p style="font-size: 13px; color: #fff; font-weight: 600;">Kompyuterdan rasm yuklash uchun bosing</p>
+                            <input type="file" id="fileImageInput" accept="image/*" style="display: none;">
+                        </div>
+                        <div style="font-size: 11px; color: var(--text-dim); margin-top: 6px;">Yoki tezkor namunaviy rasmni bosing:</div>
+                        <div class="upload-preset-gallery" id="presetGallery">
+                            <!-- Preset photos dynamically clickable -->
+                        </div>
+                        <input type="hidden" id="selectedImageUrl" value="https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?auto=format&fit=crop&w=1200&q=80">
+                    </div>
+
+                    <!-- Sotuvchi ma'lumoti -->
+                    <div class="form-group">
+                        <label>Sotuvchi ismi *</label>
+                        <input type="text" id="newSellerName" placeholder="Ismingiz" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Telefon raqam *</label>
+                        <input type="tel" id="newSellerPhone" placeholder="+998 90 123 45 67" required>
+                    </div>
+
+                    <!-- Tavsif -->
+                    <div class="form-group form-group-full">
+                        <label>Qo'shimcha ma'lumot va tavsif</label>
+                        <textarea id="newCarDescription" placeholder="Mashinaning holati, qo'shimcha jihozlari va boshqa tafsilotlari..."></textarea>
+                    </div>
+
+                    <div class="form-group form-group-full" style="margin-top: 10px;">
+                        <button type="submit" class="btn-post-ad" style="width: 100%; justify-content: center; height: 46px; font-size: 15px;">
+                            E'lonni saytga joylashtirish
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= MODAL: SOLISHTIRISH ================= -->
+    <div class="modal-overlay" id="compareModal">
+        <div class="modal-dialog" style="max-width: 960px;">
+            <div class="modal-header">
+                <div class="modal-title">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M16 3h5v5"/><path d="M4 20L21 3"/><path d="M21 16v5h-5"/><path d="M15 15l6 6"/><path d="M4 4l5 5"/></svg>
+                    Mashinalarni solishtirish
+                </div>
+                <button class="btn-close-modal" id="btnCloseCompareModal">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </button>
+            </div>
+            <div class="modal-body" id="compareModalBody">
+                <!-- Comparison matrix rendered by JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= MODAL: AVTOKREDIT KALKULYATORI ================= -->
+    <div class="modal-overlay" id="loanCalcModal">
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <div class="modal-title">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="16" y1="14" x2="16" y2="18"/><path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 10h.01"/><path d="M12 14h.01"/><path d="M8 14h.01"/><path d="M12 18h.01"/><path d="M8 18h.01"/></svg>
+                    Avtokredit kalkulyatori
+                </div>
+                <button class="btn-close-modal" id="btnCloseLoanCalcModal">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="calc-card">
+                    <div style="display: flex; flex-direction: column; gap: 16px;">
+                        <div class="form-group">
+                            <label>Mashina narxi ($ USD)</label>
+                            <input type="number" id="calcPriceInput" value="25000" step="500">
+                        </div>
+                        <div class="form-group">
+                            <label>Boshlang'ich to'lov: <strong id="calcDownPercentLabel" style="color: var(--primary);">30%</strong> ($<span id="calcDownAmountLabel">7,500</span>)</label>
+                            <input type="range" id="calcDownRange" min="10" max="70" value="30" step="5" style="accent-color: var(--primary);">
+                        </div>
+                        <div class="form-group">
+                            <label>Kredit muddati: <strong id="calcTermLabel" style="color: var(--primary);">36 oy (3 yil)</strong></label>
+                            <select id="calcTermSelect">
+                                <option value="12">12 oy (1 yil)</option>
+                                <option value="24">24 oy (2 yil)</option>
+                                <option value="36" selected>36 oy (3 yil)</option>
+                                <option value="48">48 oy (4 yil)</option>
+                                <option value="60">60 oy (5 yil)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Yillik foiz stavkasi (%):</label>
+                            <input type="number" id="calcRateInput" value="23" min="5" max="40" step="0.5">
+                        </div>
+                    </div>
+
+                    <!-- Natijalar -->
+                    <div class="calc-result-box">
+                        <div class="calc-monthly-label">Oylik to'lov</div>
+                        <div class="calc-monthly-val" id="calcMonthlyResult">$678</div>
+                        <div style="font-size: 13px; color: var(--accent-gold); font-weight: 600;" id="calcMonthlyUZS">≈ 8,678,400 UZS</div>
+
+                        <div class="calc-details-list">
+                            <div class="calc-detail-row">
+                                <span>Kredit summasi:</span>
+                                <strong id="calcLoanSumResult">$17,500</strong>
+                            </div>
+                            <div class="calc-detail-row">
+                                <span>Boshlang'ich to'lov:</span>
+                                <strong id="calcDownSumResult">$7,500</strong>
+                            </div>
+                            <div class="calc-detail-row">
+                                <span>Umumiy foiz:</span>
+                                <strong id="calcTotalInterestResult" style="color: var(--accent-rose);">$6,908</strong>
+                            </div>
+                            <div class="calc-detail-row">
+                                <span>Jami to'lov:</span>
+                                <strong id="calcTotalPaymentResult">$31,908</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOAST CONTAINER -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- SCRIPTS -->
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
